@@ -1,0 +1,48 @@
+Release 14.7 ngdbuild P.20131013 (nt)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Command Line: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt\unwrapped\ngdbuild.exe -intstyle
+ise -dd _ngo -nt timestamp -uc GenIO.ucf -uc LCD.ucf -uc ADC_DAC.ucf -p
+xc3s500e-fg320-4 schema1.ngc schema1.ngd
+
+Reading NGO file "C:/Users/lab/Desktop/burniak_cyran/pro/schema1.ngc" ...
+Loading design module "C:\Users\lab\Desktop\burniak_cyran\pro/ADC_Ctrl.ngc"...
+Loading design module "C:\Users\lab\Desktop\burniak_cyran\pro/LCD1x64.ngc"...
+Gathering constraint information from source properties...
+Done.
+
+Annotating constraints to design from ucf file "GenIO.ucf" ...
+Annotating constraints to design from ucf file "LCD.ucf" ...
+Annotating constraints to design from ucf file "ADC_DAC.ucf" ...
+Resolving constraint associations...
+Checking Constraint Associations...
+INFO:ConstraintSystem - The Period constraint <NET "Clk" PERIOD = 20.0ns HIGH
+   50%;> [GenIO.ucf(3)], is specified using the Net Period method which is not
+   recommended. Please use the Timespec PERIOD method.
+
+Done...
+
+Checking expanded design ...
+WARNING:NgdBuild:452 - logical net 'N34' has no driver
+WARNING:NgdBuild:452 - logical net 'N35' has no driver
+WARNING:NgdBuild:452 - logical net 'N36' has no driver
+WARNING:NgdBuild:452 - logical net 'N37' has no driver
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+NGDBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:   4
+
+Total memory usage is 116236 kilobytes
+
+Writing NGD file "schema1.ngd" ...
+Total REAL time to NGDBUILD completion:  3 sec
+Total CPU time to NGDBUILD completion:   2 sec
+
+Writing NGDBUILD log file "schema1.bld"...

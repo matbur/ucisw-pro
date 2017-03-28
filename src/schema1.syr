@@ -1,0 +1,559 @@
+Release 14.7 - xst P.20131013 (nt)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.12 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.12 secs
+ 
+--> Reading design: schema1.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "schema1.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "schema1"
+Output Format                      : NGC
+Target Device                      : xc3s500e-4-fg320
+
+---- Source Options
+Top Module Name                    : schema1
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/Users/lab/Desktop/burniak_cyran/pro/vga_init.vhd" in Library work.
+Entity <vga_init> compiled.
+Entity <vga_init> (Architecture <behavioral>) compiled.
+Compiling vhdl file "C:/Users/lab/Desktop/burniak_cyran/pro/schema1.vhf" in Library work.
+Entity <schema1> compiled.
+Entity <schema1> (Architecture <behavioral>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <schema1> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <vga_init> in library <work> (architecture <behavioral>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <schema1> in library <work> (Architecture <behavioral>).
+WARNING:Xst:2211 - "C:/Users/lab/Desktop/burniak_cyran/pro/schema1.vhf" line 119: Instantiating black box module <ADC_Ctrl>.
+WARNING:Xst:2211 - "C:/Users/lab/Desktop/burniak_cyran/pro/schema1.vhf" line 142: Instantiating black box module <LCD1x64>.
+Entity <schema1> analyzed. Unit <schema1> generated.
+
+Analyzing Entity <vga_init> in library <work> (Architecture <behavioral>).
+WARNING:Xst:819 - "C:/Users/lab/Desktop/burniak_cyran/pro/vga_init.vhd" line 124: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <BOX_HPOS>, <BOX_VPOS>
+Entity <vga_init> analyzed. Unit <vga_init> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <vga_init>.
+    Related source file is "C:/Users/lab/Desktop/burniak_cyran/pro/vga_init.vhd".
+WARNING:Xst:647 - Input <ADC_Busy> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:1305 - Output <VGA_B> is never assigned. Tied to value 0.
+WARNING:Xst:737 - Found 11-bit latch for signal <BOX_HPOS>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 11-bit latch for signal <BOX_VPOS>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Found 11-bit adder for signal <BOX_HPOS$add0000> created at line 127.
+    Found 11-bit comparator greater for signal <BOX_HPOS$cmp_gt0000> created at line 132.
+    Found 11-bit comparator less for signal <BOX_HPOS$cmp_lt0000> created at line 131.
+    Found 11-bit adder for signal <BOX_VPOS$add0000> created at line 128.
+    Found 11-bit comparator greater for signal <BOX_VPOS$cmp_gt0000> created at line 138.
+    Found 11-bit comparator less for signal <BOX_VPOS$cmp_lt0000> created at line 137.
+    Found 11-bit up counter for signal <HPOS>.
+    Found 11-bit adder for signal <VGA_G$addsub0000> created at line 115.
+    Found 11-bit comparator greater for signal <VGA_G$cmp_gt0000> created at line 115.
+    Found 10-bit comparator greater for signal <VGA_G$cmp_gt0001> created at line 115.
+    Found 11-bit comparator less for signal <VGA_G$cmp_lt0000> created at line 115.
+    Found 10-bit comparator less for signal <VGA_G$cmp_lt0001> created at line 115.
+    Found 11-bit comparator greatequal for signal <VGA_HS$cmp_ge0000> created at line 111.
+    Found 11-bit comparator less for signal <VGA_HS$cmp_lt0000> created at line 111.
+    Found 11-bit comparator less for signal <VGA_R$cmp_lt0000> created at line 114.
+    Found 10-bit comparator less for signal <VGA_R$cmp_lt0001> created at line 114.
+    Found 10-bit comparator greatequal for signal <VGA_VS$cmp_ge0000> created at line 112.
+    Found 10-bit comparator less for signal <VGA_VS$cmp_lt0000> created at line 112.
+    Found 10-bit up counter for signal <VPOS>.
+    Summary:
+	inferred   2 Counter(s).
+	inferred   3 Adder/Subtractor(s).
+	inferred  14 Comparator(s).
+Unit <vga_init> synthesized.
+
+
+Synthesizing Unit <schema1>.
+    Related source file is "C:/Users/lab/Desktop/burniak_cyran/pro/schema1.vhf".
+WARNING:Xst:646 - Signal <XLXN_32> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <XLXN_30> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <XLXN_29> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:653 - Signal <XLXI_3_Reset_openSignal> is used but never assigned. This sourceless signal will be automatically connected to value 0.
+WARNING:Xst:653 - Signal <XLXI_1_Reset_openSignal> is used but never assigned. This sourceless signal will be automatically connected to value 0.
+Unit <schema1> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 3
+ 11-bit adder                                          : 3
+# Counters                                             : 2
+ 10-bit up counter                                     : 1
+ 11-bit up counter                                     : 1
+# Latches                                              : 2
+ 11-bit latch                                          : 2
+# Comparators                                          : 14
+ 10-bit comparator greatequal                          : 1
+ 10-bit comparator greater                             : 1
+ 10-bit comparator less                                : 3
+ 11-bit comparator greatequal                          : 1
+ 11-bit comparator greater                             : 3
+ 11-bit comparator less                                : 5
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Reading core <ADC_Ctrl.ngc>.
+Reading core <LCD1x64.ngc>.
+Loading core <ADC_Ctrl> for timing and area information for instance <XLXI_1>.
+Loading core <LCD1x64> for timing and area information for instance <XLXI_3>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 3
+ 11-bit adder                                          : 3
+# Counters                                             : 2
+ 10-bit up counter                                     : 1
+ 11-bit up counter                                     : 1
+# Latches                                              : 2
+ 11-bit latch                                          : 2
+# Comparators                                          : 14
+ 10-bit comparator greatequal                          : 1
+ 10-bit comparator greater                             : 1
+ 10-bit comparator less                                : 3
+ 11-bit comparator greatequal                          : 1
+ 11-bit comparator greater                             : 3
+ 11-bit comparator less                                : 5
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:2677 - Node <BOX_VPOS_0> of sequential type is unconnected in block <vga_init>.
+WARNING:Xst:2677 - Node <BOX_VPOS_1> of sequential type is unconnected in block <vga_init>.
+WARNING:Xst:2677 - Node <BOX_VPOS_2> of sequential type is unconnected in block <vga_init>.
+WARNING:Xst:2677 - Node <BOX_VPOS_3> of sequential type is unconnected in block <vga_init>.
+WARNING:Xst:2677 - Node <BOX_VPOS_4> of sequential type is unconnected in block <vga_init>.
+WARNING:Xst:2677 - Node <BOX_VPOS_5> of sequential type is unconnected in block <vga_init>.
+WARNING:Xst:2677 - Node <BOX_VPOS_6> of sequential type is unconnected in block <vga_init>.
+WARNING:Xst:2677 - Node <BOX_VPOS_7> of sequential type is unconnected in block <vga_init>.
+WARNING:Xst:2677 - Node <BOX_VPOS_8> of sequential type is unconnected in block <vga_init>.
+WARNING:Xst:2677 - Node <BOX_VPOS_9> of sequential type is unconnected in block <vga_init>.
+WARNING:Xst:2677 - Node <BOX_VPOS_10> of sequential type is unconnected in block <vga_init>.
+
+Optimizing unit <schema1> ...
+
+Optimizing unit <vga_init> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block schema1, actual ratio is 4.
+INFO:Xst:2260 - The FF/Latch <cntDigit_0> in Unit <XLXI_3> is equivalent to the following 4 FFs/Latches : <cntDigit_0_1> <cntDigit_0_2> <cntDigit_0_3> <cntDigit_0_4> 
+INFO:Xst:2260 - The FF/Latch <cntDigit_1> in Unit <XLXI_3> is equivalent to the following 2 FFs/Latches : <cntDigit_1_1> <cntDigit_1_2> 
+INFO:Xst:2260 - The FF/Latch <State_16> in Unit <XLXI_3> is equivalent to the following FF/Latch : <State_16_1> 
+INFO:Xst:2260 - The FF/Latch <cntDigit_0> in Unit <XLXI_3> is equivalent to the following 4 FFs/Latches : <cntDigit_0_1> <cntDigit_0_2> <cntDigit_0_3> <cntDigit_0_4> 
+INFO:Xst:2260 - The FF/Latch <cntDigit_1> in Unit <XLXI_3> is equivalent to the following 2 FFs/Latches : <cntDigit_1_1> <cntDigit_1_2> 
+INFO:Xst:2260 - The FF/Latch <State_16> in Unit <XLXI_3> is equivalent to the following FF/Latch : <State_16_1> 
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 21
+ Flip-Flops                                            : 21
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : schema1.ngr
+Top Level Output File Name         : schema1
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 23
+
+Cell Usage :
+# BELS                             : 552
+#      GND                         : 3
+#      INV                         : 22
+#      LUT1                        : 54
+#      LUT2                        : 75
+#      LUT2_D                      : 1
+#      LUT2_L                      : 4
+#      LUT3                        : 82
+#      LUT3_D                      : 3
+#      LUT3_L                      : 3
+#      LUT4                        : 77
+#      LUT4_D                      : 5
+#      LUT4_L                      : 12
+#      MUXCY                       : 99
+#      MUXF5                       : 25
+#      MUXF6                       : 10
+#      MUXF7                       : 5
+#      VCC                         : 3
+#      XORCY                       : 69
+# FlipFlops/Latches                : 190
+#      FD                          : 10
+#      FDE                         : 21
+#      FDE_1                       : 27
+#      FDR                         : 68
+#      FDRE                        : 21
+#      FDRS                        : 12
+#      FDRSE                       : 5
+#      FDS                         : 12
+#      IDDR2                       : 1
+#      LDCE_1                      : 4
+#      LDCPE_1                     : 7
+#      ODDR2                       : 2
+# Shift Registers                  : 1
+#      SRL16E_1                    : 1
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 22
+#      IBUF                        : 2
+#      IOBUF                       : 4
+#      OBUF                        : 16
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-4 
+
+ Number of Slices:                      199  out of   4656     4%  
+ Number of Slice Flip Flops:            190  out of   9312     2%  
+ Number of 4 input LUTs:                339  out of   9312     3%  
+    Number used as logic:               338
+    Number used as Shift registers:       1
+ Number of IOs:                          23
+ Number of bonded IOBs:                  22  out of    232     9%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+---------------------------------------------------+----------------------------+-------+
+Clock Signal                                       | Clock buffer(FF name)      | Load  |
+---------------------------------------------------+----------------------------+-------+
+Clk                                                | BUFGP                      | 182   |
+XLXI_1/AMP_SHDN                                    | NONE(XLXI_1/IDDR2_inst)    | 1     |
+XLXI_4/BOX_HPOS_not0003(XLXI_4/BOX_HPOS_not00031:O)| NONE(*)(XLXI_4/BOX_HPOS_10)| 11    |
+---------------------------------------------------+----------------------------+-------+
+(*) This 1 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+--------------------------------------------------------------------------------+------------------------+-------+
+Control Signal                                                                  | Buffer(FF name)        | Load  |
+--------------------------------------------------------------------------------+------------------------+-------+
+XLXI_4/BOX_HPOS_10(XLXI_4/BOX_HPOS_10:Q)                                        | NONE(XLXI_4/BOX_HPOS_1)| 7     |
+XLXI_4/BOX_HPOS_cmp_gt0000(XLXI_4/Mcompar_BOX_HPOS_cmp_gt0000_cy<6>_inv_INV_0:O)| NONE(XLXI_4/BOX_HPOS_1)| 7     |
+XLXI_4/BOX_HPOS_Q_0_or0000(XLXI_4/BOX_HPOS_Q_0_or00001:O)                       | NONE(XLXI_4/BOX_HPOS_0)| 4     |
+--------------------------------------------------------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 13.206ns (Maximum Frequency: 75.723MHz)
+   Minimum input arrival time before clock: 3.752ns
+   Maximum output required time after clock: 10.785ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'Clk'
+  Clock period: 13.206ns (frequency: 75.723MHz)
+  Total number of paths / destination ports: 2804 / 337
+-------------------------------------------------------------------------
+Delay:               6.603ns (Levels of Logic = 7)
+  Source:            XLXI_1/regADC_DI_29 (FF)
+  Destination:       XLXI_3/regDI_0 (FF)
+  Source Clock:      Clk falling
+  Destination Clock: Clk rising
+
+  Data Path: XLXI_1/regADC_DI_29 to XLXI_3/regDI_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE_1:C->Q           10   0.591   1.057  regADC_DI_29 (ADC_DOA<13>)
+     end scope: 'XLXI_1'
+     begin scope: 'XLXI_3'
+     LUT3:I0->O            1   0.704   0.000  Mmux_Digit_51 (Mmux_Digit_51)
+     MUXF5:I1->O           1   0.321   0.000  Mmux_Digit_4_f5_0 (Mmux_Digit_4_f51)
+     MUXF6:I1->O           1   0.521   0.000  Mmux_Digit_3_f6_0 (Mmux_Digit_3_f61)
+     MUXF7:I1->O           6   0.521   0.748  Mmux_Digit_2_f7_0 (Digit<1>)
+     LUT3_D:I1->O          1   0.704   0.424  Hex2ASCII<4>1 (Hex2ASCII<4>)
+     LUT4:I3->O            1   0.704   0.000  regDI_mux0001<7>1111 (regDI_mux0001<7>111)
+     FDS:D                     0.308          regDI_0
+    ----------------------------------------
+    Total                      6.603ns (4.374ns logic, 2.229ns route)
+                                       (66.2% logic, 33.8% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'XLXI_4/BOX_HPOS_not0003'
+  Clock period: 4.249ns (frequency: 235.349MHz)
+  Total number of paths / destination ports: 121 / 11
+-------------------------------------------------------------------------
+Delay:               4.249ns (Levels of Logic = 12)
+  Source:            XLXI_4/BOX_HPOS_0 (LATCH)
+  Destination:       XLXI_4/BOX_HPOS_10 (LATCH)
+  Source Clock:      XLXI_4/BOX_HPOS_not0003 rising
+  Destination Clock: XLXI_4/BOX_HPOS_not0003 rising
+
+  Data Path: XLXI_4/BOX_HPOS_0 to XLXI_4/BOX_HPOS_10
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDCE_1:G->Q           4   0.676   0.762  XLXI_4/BOX_HPOS_0 (XLXI_4/BOX_HPOS_0)
+     LUT2:I0->O            1   0.704   0.000  XLXI_4/Madd_BOX_HPOS_add0000_lut<0> (XLXI_4/Madd_BOX_HPOS_add0000_lut<0>)
+     MUXCY:S->O            1   0.464   0.000  XLXI_4/Madd_BOX_HPOS_add0000_cy<0> (XLXI_4/Madd_BOX_HPOS_add0000_cy<0>)
+     MUXCY:CI->O           1   0.059   0.000  XLXI_4/Madd_BOX_HPOS_add0000_cy<1> (XLXI_4/Madd_BOX_HPOS_add0000_cy<1>)
+     MUXCY:CI->O           1   0.059   0.000  XLXI_4/Madd_BOX_HPOS_add0000_cy<2> (XLXI_4/Madd_BOX_HPOS_add0000_cy<2>)
+     MUXCY:CI->O           1   0.059   0.000  XLXI_4/Madd_BOX_HPOS_add0000_cy<3> (XLXI_4/Madd_BOX_HPOS_add0000_cy<3>)
+     MUXCY:CI->O           1   0.059   0.000  XLXI_4/Madd_BOX_HPOS_add0000_cy<4> (XLXI_4/Madd_BOX_HPOS_add0000_cy<4>)
+     MUXCY:CI->O           1   0.059   0.000  XLXI_4/Madd_BOX_HPOS_add0000_cy<5> (XLXI_4/Madd_BOX_HPOS_add0000_cy<5>)
+     MUXCY:CI->O           1   0.059   0.000  XLXI_4/Madd_BOX_HPOS_add0000_cy<6> (XLXI_4/Madd_BOX_HPOS_add0000_cy<6>)
+     MUXCY:CI->O           1   0.059   0.000  XLXI_4/Madd_BOX_HPOS_add0000_cy<7> (XLXI_4/Madd_BOX_HPOS_add0000_cy<7>)
+     MUXCY:CI->O           1   0.059   0.000  XLXI_4/Madd_BOX_HPOS_add0000_cy<8> (XLXI_4/Madd_BOX_HPOS_add0000_cy<8>)
+     MUXCY:CI->O           0   0.059   0.000  XLXI_4/Madd_BOX_HPOS_add0000_cy<9> (XLXI_4/Madd_BOX_HPOS_add0000_cy<9>)
+     XORCY:CI->O           1   0.804   0.000  XLXI_4/Madd_BOX_HPOS_add0000_xor<10> (XLXI_4/BOX_HPOS_add0000<10>)
+     LDCE_1:D                  0.308          XLXI_4/BOX_HPOS_10
+    ----------------------------------------
+    Total                      4.249ns (3.487ns logic, 0.762ns route)
+                                       (82.1% logic, 17.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'Clk'
+  Total number of paths / destination ports: 2 / 2
+-------------------------------------------------------------------------
+Offset:              3.752ns (Levels of Logic = 2)
+  Source:            SPI_MISO (PAD)
+  Destination:       XLXI_1/IDDR2_inst (FF)
+  Destination Clock: Clk falling
+
+  Data Path: SPI_MISO to XLXI_1/IDDR2_inst
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     begin scope: 'XLXI_1'
+     IBUF:I->O             1   1.218   0.420  IBUF_inst (SPI_MISO_IBUF)
+     IDDR2:D                   2.114          IDDR2_inst
+    ----------------------------------------
+    Total                      3.752ns (3.332ns logic, 0.420ns route)
+                                       (88.8% logic, 11.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'Clk'
+  Total number of paths / destination ports: 122 / 13
+-------------------------------------------------------------------------
+Offset:              8.838ns (Levels of Logic = 5)
+  Source:            XLXI_4/VPOS_7 (FF)
+  Destination:       VGA_VS (PAD)
+  Source Clock:      Clk rising
+
+  Data Path: XLXI_4/VPOS_7 to VGA_VS
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q             8   0.591   0.932  XLXI_4/VPOS_7 (XLXI_4/VPOS_7)
+     LUT3:I0->O            1   0.704   0.595  XLXI_4/VGA_VS_and00006 (XLXI_4/VGA_VS_and00006)
+     LUT4:I0->O            1   0.704   0.000  XLXI_4/VGA_VS_and000067_SW0_F (N28)
+     MUXF5:I0->O           1   0.321   0.595  XLXI_4/VGA_VS_and000067_SW0 (N18)
+     LUT3:I0->O            1   0.704   0.420  XLXI_4/VGA_VS_and000067 (VGA_VS_OBUF)
+     OBUF:I->O                 3.272          VGA_VS_OBUF (VGA_VS)
+    ----------------------------------------
+    Total                      8.838ns (6.296ns logic, 2.542ns route)
+                                       (71.2% logic, 28.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'XLXI_4/BOX_HPOS_not0003'
+  Total number of paths / destination ports: 87 / 1
+-------------------------------------------------------------------------
+Offset:              10.785ns (Levels of Logic = 14)
+  Source:            XLXI_4/BOX_HPOS_2 (LATCH)
+  Destination:       VGA_G (PAD)
+  Source Clock:      XLXI_4/BOX_HPOS_not0003 rising
+
+  Data Path: XLXI_4/BOX_HPOS_2 to VGA_G
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDCPE_1:G->Q          4   0.676   0.762  XLXI_4/BOX_HPOS_2 (XLXI_4/BOX_HPOS_2)
+     LUT1:I0->O            1   0.704   0.000  XLXI_4/Madd_VGA_G_addsub0000_cy<2>_rt (XLXI_4/Madd_VGA_G_addsub0000_cy<2>_rt)
+     MUXCY:S->O            1   0.464   0.000  XLXI_4/Madd_VGA_G_addsub0000_cy<2> (XLXI_4/Madd_VGA_G_addsub0000_cy<2>)
+     MUXCY:CI->O           1   0.059   0.000  XLXI_4/Madd_VGA_G_addsub0000_cy<3> (XLXI_4/Madd_VGA_G_addsub0000_cy<3>)
+     MUXCY:CI->O           1   0.059   0.000  XLXI_4/Madd_VGA_G_addsub0000_cy<4> (XLXI_4/Madd_VGA_G_addsub0000_cy<4>)
+     MUXCY:CI->O           1   0.059   0.000  XLXI_4/Madd_VGA_G_addsub0000_cy<5> (XLXI_4/Madd_VGA_G_addsub0000_cy<5>)
+     MUXCY:CI->O           1   0.059   0.000  XLXI_4/Madd_VGA_G_addsub0000_cy<6> (XLXI_4/Madd_VGA_G_addsub0000_cy<6>)
+     MUXCY:CI->O           1   0.059   0.000  XLXI_4/Madd_VGA_G_addsub0000_cy<7> (XLXI_4/Madd_VGA_G_addsub0000_cy<7>)
+     MUXCY:CI->O           1   0.059   0.000  XLXI_4/Madd_VGA_G_addsub0000_cy<8> (XLXI_4/Madd_VGA_G_addsub0000_cy<8>)
+     MUXCY:CI->O           0   0.059   0.000  XLXI_4/Madd_VGA_G_addsub0000_cy<9> (XLXI_4/Madd_VGA_G_addsub0000_cy<9>)
+     XORCY:CI->O           1   0.804   0.499  XLXI_4/Madd_VGA_G_addsub0000_xor<10> (XLXI_4/VGA_G_addsub0000<10>)
+     LUT2:I1->O            1   0.704   0.000  XLXI_4/Mcompar_VGA_G_cmp_lt0000_lut<10> (XLXI_4/Mcompar_VGA_G_cmp_lt0000_lut<10>)
+     MUXCY:S->O            1   0.864   0.499  XLXI_4/Mcompar_VGA_G_cmp_lt0000_cy<10> (XLXI_4/Mcompar_VGA_G_cmp_lt0000_cy<10>)
+     LUT4:I1->O            1   0.704   0.420  XLXI_4/VGA_G_and000092 (VGA_G_OBUF)
+     OBUF:I->O                 3.272          VGA_G_OBUF (VGA_G)
+    ----------------------------------------
+    Total                     10.785ns (8.605ns logic, 2.180ns route)
+                                       (79.8% logic, 20.2% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 7.00 secs
+Total CPU time to Xst completion: 6.54 secs
+ 
+--> 
+
+Total memory usage is 219244 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   23 (   0 filtered)
+Number of infos    :    7 (   0 filtered)
+

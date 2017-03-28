@@ -19,6 +19,7 @@
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use ieee.numeric_std.ALL; 
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -31,11 +32,24 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity vga_init is
     Port ( CLK : in  STD_LOGIC;
+
+           ADC_DOA : in STD_LOGIC_VECTOR(13 downto 0);
+           ADC_DOB : in STD_LOGIC_VECTOR(13 downto 0);
+           ADC_Busy : in STD_LOGIC;
+
            VGA_R : out  STD_LOGIC;
            VGA_G : out  STD_LOGIC;
            VGA_B : out  STD_LOGIC;
            VGA_HS : out  STD_LOGIC;
-           VGA_VS : out  STD_LOGIC);
+           VGA_VS : out  STD_LOGIC;
+           
+           AMP_WE : out STD_LOGIC;
+           AMP_DI : out STD_LOGIC_VECTOR(7 downto 0);
+           ADC_Start : out STD_LOGIC;
+
+           Line : out STD_LOGIC_VECTOR(63 downto 0);
+           Blank : out STD_LOGIC_VECTOR(15 downto 0));
+           
 end vga_init;
 
 architecture Behavioral of vga_init is
@@ -65,6 +79,11 @@ architecture Behavioral of vga_init is
 
    constant BLUE : STD_LOGIC_VECTOR(0 to 2) := "001";
    constant YELLOW : STD_LOGIC_VECTOR(0 to 2) := "110";
+   
+   constant SIDE : integer := 50;
+   
+   signal BOX_HPOS : integer range -100 to HT_DISP := 400;
+   signal BOX_VPOS : integer range -100 to VT_DISP := 300;
 begin
 
    HPOS_CNT: process (CLK) 
@@ -92,8 +111,38 @@ begin
    VGA_HS <= '1' when HPOS >= HT_DISP + HT_FP and HPOS < HPOS_MAX - HT_BP else '0';
    VGA_VS <= '1' when VPOS >= VT_DISP + VT_FP and VPOS < VPOS_MAX - VT_BP else '0';
 
-   VGA_B <= '1' when HPOS < HT_DISP and VPOS < VT_DISP else '0';
+   VGA_R <= '1' when HPOS < HT_DISP and VPOS < VT_DISP else '0';
+   VGA_G <= '1' when HPOS > BOX_HPOS and HPOS < BOX_HPOS + SIDE and VPOS > 300 and VPOS < 300 + SIDE else '0';
 
+   AMP_WE <= '1' when HPOS = 0 and VPOS = 0 else '0';
+   AMP_DI <= X"11";
+   ADC_Start <= '1' when HPOS = HT_DISP and VPOS = VT_DISP else '0';
+   
+   Blank <= X"0F0F";
+   Line <= "00" & ADC_DOA & X"0000" & "00" & ADC_DOB & X"0000";
+   
+   BOX: process (HPOS, VPOS)
+   begin
+      if HPOS = 0 and VPOS = 0 then
+         BOX_HPOS <= BOX_HPOS + to_integer(signed(ADC_DOA(13 downto 11)));
+         BOX_VPOS <= BOX_VPOS + to_integer(signed(ADC_DOB(13 downto 11)));
+      end if;
+      
+      if BOX_HPOS < 0 then
+         BOX_HPOS <= 0;
+      elsif BOX_HPOS > HT_DISP - SIDE then
+         BOX_HPOS <= HT_DISP - SIDE;
+      end if;
+
+      if BOX_VPOS < 0 then
+         BOX_VPOS <= 0;
+      elsif BOX_VPOS > VT_DISP - SIDE then
+         BOX_VPOS <= VT_DISP - SIDE;
+      end if;
+   end process BOX;
+--   BOX_HPOS <= BOX_HPOS + to_integer(signed(ADC_DOA(13 downto 12)));
+   
+   
 
 end Behavioral;
 

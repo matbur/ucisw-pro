@@ -1,0 +1,91 @@
+xst -intstyle ise -ifn "C:/Users/lab/Desktop/burniak_cyran/pro/schema1.xst" -ofn "C:/Users/lab/Desktop/burniak_cyran/pro/schema1.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc GenIO.ucf -uc LCD.ucf -uc ADC_DAC.ucf -p xc3s500e-fg320-4 schema1.ngc schema1.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc GenIO.ucf -uc LCD.ucf -uc ADC_DAC.ucf -p xc3s500e-fg320-4 schema1.ngc schema1.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o schema1_map.ncd schema1.ngd schema1.pcf 
+par -w -intstyle ise -ol high -t 1 schema1_map.ncd schema1.ncd schema1.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml schema1.twx schema1.ncd -o schema1.twr schema1.pcf -ucf GenIO.ucf -ucf LCD.ucf -ucf ADC_DAC.ucf 
+bitgen -intstyle ise -f schema1.ut schema1.ncd 
+xst -intstyle ise -ifn "C:/Users/lab/Desktop/burniak_cyran/pro/schema1.xst" -ofn "C:/Users/lab/Desktop/burniak_cyran/pro/schema1.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc GenIO.ucf -uc LCD.ucf -uc ADC_DAC.ucf -p xc3s500e-fg320-4 schema1.ngc schema1.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o schema1_map.ncd schema1.ngd schema1.pcf 
+par -w -intstyle ise -ol high -t 1 schema1_map.ncd schema1.ncd schema1.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml schema1.twx schema1.ncd -o schema1.twr schema1.pcf -ucf GenIO.ucf -ucf LCD.ucf -ucf ADC_DAC.ucf 
+bitgen -intstyle ise -f schema1.ut schema1.ncd 
+xst -intstyle ise -ifn "C:/Users/lab/Desktop/burniak_cyran/pro/schema1.xst" -ofn "C:/Users/lab/Desktop/burniak_cyran/pro/schema1.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc GenIO.ucf -uc LCD.ucf -uc ADC_DAC.ucf -p xc3s500e-fg320-4 schema1.ngc schema1.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o schema1_map.ncd schema1.ngd schema1.pcf 
+par -w -intstyle ise -ol high -t 1 schema1_map.ncd schema1.ncd schema1.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml schema1.twx schema1.ncd -o schema1.twr schema1.pcf -ucf GenIO.ucf -ucf LCD.ucf -ucf ADC_DAC.ucf 
+bitgen -intstyle ise -f schema1.ut schema1.ncd 
+xst -intstyle ise -ifn "C:/Users/lab/Desktop/burniak_cyran/pro/schema1.xst" -ofn "C:/Users/lab/Desktop/burniak_cyran/pro/schema1.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc GenIO.ucf -uc LCD.ucf -uc ADC_DAC.ucf -p xc3s500e-fg320-4 schema1.ngc schema1.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o schema1_map.ncd schema1.ngd schema1.pcf 
+par -w -intstyle ise -ol high -t 1 schema1_map.ncd schema1.ncd schema1.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml schema1.twx schema1.ncd -o schema1.twr schema1.pcf -ucf GenIO.ucf -ucf LCD.ucf -ucf ADC_DAC.ucf 
+bitgen -intstyle ise -f schema1.ut schema1.ncd 
+xst -intstyle ise -ifn "C:/Users/lab/Desktop/burniak_cyran/pro/schema1.xst" -ofn "C:/Users/lab/Desktop/burniak_cyran/pro/schema1.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc GenIO.ucf -uc LCD.ucf -uc ADC_DAC.ucf -p xc3s500e-fg320-4 schema1.ngc schema1.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o schema1_map.ncd schema1.ngd schema1.pcf 
+par -w -intstyle ise -ol high -t 1 schema1_map.ncd schema1.ncd schema1.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml schema1.twx schema1.ncd -o schema1.twr schema1.pcf -ucf GenIO.ucf -ucf LCD.ucf -ucf ADC_DAC.ucf 
+bitgen -intstyle ise -f schema1.ut schema1.ncd 
+xst -intstyle ise -ifn "C:/Users/lab/Desktop/burniak_cyran/pro/schema1.xst" -ofn "C:/Users/lab/Desktop/burniak_cyran/pro/schema1.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc GenIO.ucf -uc LCD.ucf -uc ADC_DAC.ucf -p xc3s500e-fg320-4 schema1.ngc schema1.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o schema1_map.ncd schema1.ngd schema1.pcf 
+par -w -intstyle ise -ol high -t 1 schema1_map.ncd schema1.ncd schema1.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml schema1.twx schema1.ncd -o schema1.twr schema1.pcf -ucf GenIO.ucf -ucf LCD.ucf -ucf ADC_DAC.ucf 
+bitgen -intstyle ise -f schema1.ut schema1.ncd 
+xst -intstyle ise -ifn "C:/Users/lab/Desktop/burniak_cyran/pro/schema1.xst" -ofn "C:/Users/lab/Desktop/burniak_cyran/pro/schema1.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc GenIO.ucf -uc LCD.ucf -uc ADC_DAC.ucf -p xc3s500e-fg320-4 schema1.ngc schema1.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o schema1_map.ncd schema1.ngd schema1.pcf 
+par -w -intstyle ise -ol high -t 1 schema1_map.ncd schema1.ncd schema1.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml schema1.twx schema1.ncd -o schema1.twr schema1.pcf -ucf GenIO.ucf -ucf LCD.ucf -ucf ADC_DAC.ucf 
+bitgen -intstyle ise -f schema1.ut schema1.ncd 
+xst -intstyle ise -ifn "C:/Users/lab/Desktop/burniak_cyran/pro/schema1.xst" -ofn "C:/Users/lab/Desktop/burniak_cyran/pro/schema1.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc GenIO.ucf -uc LCD.ucf -uc ADC_DAC.ucf -p xc3s500e-fg320-4 schema1.ngc schema1.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o schema1_map.ncd schema1.ngd schema1.pcf 
+par -w -intstyle ise -ol high -t 1 schema1_map.ncd schema1.ncd schema1.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml schema1.twx schema1.ncd -o schema1.twr schema1.pcf -ucf GenIO.ucf -ucf LCD.ucf -ucf ADC_DAC.ucf 
+bitgen -intstyle ise -f schema1.ut schema1.ncd 
+xst -intstyle ise -ifn "C:/Users/lab/Desktop/burniak_cyran/pro/schema1.xst" -ofn "C:/Users/lab/Desktop/burniak_cyran/pro/schema1.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc GenIO.ucf -uc LCD.ucf -uc ADC_DAC.ucf -p xc3s500e-fg320-4 schema1.ngc schema1.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o schema1_map.ncd schema1.ngd schema1.pcf 
+par -w -intstyle ise -ol high -t 1 schema1_map.ncd schema1.ncd schema1.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml schema1.twx schema1.ncd -o schema1.twr schema1.pcf -ucf GenIO.ucf -ucf LCD.ucf -ucf ADC_DAC.ucf 
+bitgen -intstyle ise -f schema1.ut schema1.ncd 
+xst -intstyle ise -ifn "C:/Users/lab/Desktop/burniak_cyran/pro/schema1.xst" -ofn "C:/Users/lab/Desktop/burniak_cyran/pro/schema1.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc GenIO.ucf -uc LCD.ucf -uc ADC_DAC.ucf -p xc3s500e-fg320-4 schema1.ngc schema1.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o schema1_map.ncd schema1.ngd schema1.pcf 
+par -w -intstyle ise -ol high -t 1 schema1_map.ncd schema1.ncd schema1.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml schema1.twx schema1.ncd -o schema1.twr schema1.pcf -ucf GenIO.ucf -ucf LCD.ucf -ucf ADC_DAC.ucf 
+bitgen -intstyle ise -f schema1.ut schema1.ncd 
+xst -intstyle ise -ifn "C:/Users/lab/Desktop/burniak_cyran/pro/schema1.xst" -ofn "C:/Users/lab/Desktop/burniak_cyran/pro/schema1.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc GenIO.ucf -uc LCD.ucf -uc ADC_DAC.ucf -p xc3s500e-fg320-4 schema1.ngc schema1.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o schema1_map.ncd schema1.ngd schema1.pcf 
+par -w -intstyle ise -ol high -t 1 schema1_map.ncd schema1.ncd schema1.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml schema1.twx schema1.ncd -o schema1.twr schema1.pcf -ucf GenIO.ucf -ucf LCD.ucf -ucf ADC_DAC.ucf 
+bitgen -intstyle ise -f schema1.ut schema1.ncd 
+xst -intstyle ise -ifn "C:/Users/lab/Desktop/burniak_cyran/pro/schema1.xst" -ofn "C:/Users/lab/Desktop/burniak_cyran/pro/schema1.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc GenIO.ucf -uc LCD.ucf -uc ADC_DAC.ucf -p xc3s500e-fg320-4 schema1.ngc schema1.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o schema1_map.ncd schema1.ngd schema1.pcf 
+par -w -intstyle ise -ol high -t 1 schema1_map.ncd schema1.ncd schema1.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml schema1.twx schema1.ncd -o schema1.twr schema1.pcf -ucf GenIO.ucf -ucf LCD.ucf -ucf ADC_DAC.ucf 
+bitgen -intstyle ise -f schema1.ut schema1.ncd 
+xst -intstyle ise -ifn "C:/Users/lab/Desktop/burniak_cyran/pro/schema1.xst" -ofn "C:/Users/lab/Desktop/burniak_cyran/pro/schema1.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc GenIO.ucf -uc LCD.ucf -uc ADC_DAC.ucf -p xc3s500e-fg320-4 schema1.ngc schema1.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o schema1_map.ncd schema1.ngd schema1.pcf 
+par -w -intstyle ise -ol high -t 1 schema1_map.ncd schema1.ncd schema1.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml schema1.twx schema1.ncd -o schema1.twr schema1.pcf -ucf GenIO.ucf -ucf LCD.ucf -ucf ADC_DAC.ucf 
+bitgen -intstyle ise -f schema1.ut schema1.ncd 
+xst -intstyle ise -ifn "C:/Users/lab/Desktop/burniak_cyran/pro/schema1.xst" -ofn "C:/Users/lab/Desktop/burniak_cyran/pro/schema1.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc GenIO.ucf -uc LCD.ucf -uc ADC_DAC.ucf -p xc3s500e-fg320-4 schema1.ngc schema1.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o schema1_map.ncd schema1.ngd schema1.pcf 
+par -w -intstyle ise -ol high -t 1 schema1_map.ncd schema1.ncd schema1.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml schema1.twx schema1.ncd -o schema1.twr schema1.pcf -ucf GenIO.ucf -ucf LCD.ucf -ucf ADC_DAC.ucf 
+bitgen -intstyle ise -f schema1.ut schema1.ncd 
+xst -intstyle ise -ifn "C:/Users/lab/Desktop/burniak_cyran/pro/schema1.xst" -ofn "C:/Users/lab/Desktop/burniak_cyran/pro/schema1.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc GenIO.ucf -uc LCD.ucf -uc ADC_DAC.ucf -p xc3s500e-fg320-4 schema1.ngc schema1.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o schema1_map.ncd schema1.ngd schema1.pcf 
+par -w -intstyle ise -ol high -t 1 schema1_map.ncd schema1.ncd schema1.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml schema1.twx schema1.ncd -o schema1.twr schema1.pcf -ucf GenIO.ucf -ucf LCD.ucf -ucf ADC_DAC.ucf 
+bitgen -intstyle ise -f schema1.ut schema1.ncd 

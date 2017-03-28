@@ -1,6 +1,6 @@
 # soldered 50MHz Clock.
-NET "Clk_50MHz" LOC = "C9" | IOSTANDARD = LVTTL;
-NET "Clk_50MHz" PERIOD = 20.0ns HIGH 50%;
+NET "Clk" LOC = "C9" | IOSTANDARD = LVTTL;
+NET "Clk" PERIOD = 20.0ns HIGH 50%;
 
 # Ignore cross-clock domain data paths in timing analysis
 #NET "Clk50"  TNM = "TNM_Clk50";
