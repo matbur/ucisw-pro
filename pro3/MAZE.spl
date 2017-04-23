@@ -1,0 +1,6 @@
+[Inputs]
+CLK
+=ADDR[12:0]=
+[Outputs]
+DATA
+[BiDir]
