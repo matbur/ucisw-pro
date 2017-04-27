@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<symbol version="7" name="MASTER">
+    <symboltype>BLOCK</symboltype>
+    <timestamp>2017-4-26T11:44:5</timestamp>
+    <pin polarity="Input" x="0" y="-416" name="ADC_BUSY" />
+    <pin polarity="Input" x="0" y="-352" name="CLK" />
+    <pin polarity="Input" x="0" y="-160" name="DATA" />
+    <pin polarity="Input" x="0" y="-96" name="ADC_DOA(13:0)" />
+    <pin polarity="Input" x="0" y="-32" name="ADC_DOB(13:0)" />
+    <pin polarity="Input" x="0" y="32" name="POS(19:0)" />
+    <pin polarity="Output" x="448" y="-416" name="AMP_WE" />
+    <pin polarity="Output" x="448" y="-352" name="ADC_Start" />
+    <pin polarity="Output" x="448" y="-288" name="Line(63:0)" />
+    <pin polarity="Output" x="448" y="-224" name="Blank(15:0)" />
+    <pin polarity="Output" x="448" y="-160" name="ADDR(13:0)" />
+    <pin polarity="Output" x="448" y="96" name="VGA_COLOR(2:0)" />
+    <pin polarity="Output" x="448" y="-96" name="AMP_DI(7:0)" />
+    <graph>
+        <attrtext style="alignment:BCENTER;fontsize:56;fontname:Arial" attrname="SymbolName" x="224" y="-456" type="symbol" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-416" type="pin ADC_BUSY" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-352" type="pin CLK" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-160" type="pin DATA" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-96" type="pin ADC_DOA(13:0)" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-32" type="pin ADC_DOB(13:0)" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="32" type="pin POS(19:0)" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="376" y="-416" type="pin AMP_WE" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="376" y="-352" type="pin ADC_Start" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="376" y="-288" type="pin Line(63:0)" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="376" y="-224" type="pin Blank(15:0)" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="376" y="-160" type="pin ADDR(13:0)" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="376" y="96" type="pin VGA_COLOR(2:0)" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="376" y="-96" type="pin AMP_DI(7:0)" />
+        <rect width="64" x="384" y="84" height="24" />
+        <line x2="448" y1="96" y2="96" x1="384" />
+        <rect width="64" x="0" y="20" height="24" />
+        <line x2="0" y1="32" y2="32" x1="64" />
+        <line x2="0" y1="-416" y2="-416" x1="64" />
+        <line x2="0" y1="-352" y2="-352" x1="64" />
+        <line x2="0" y1="-160" y2="-160" x1="64" />
+        <rect width="64" x="0" y="-108" height="24" />
+        <line x2="0" y1="-96" y2="-96" x1="64" />
+        <rect width="64" x="0" y="-44" height="24" />
+        <line x2="0" y1="-32" y2="-32" x1="64" />
+        <line x2="448" y1="-416" y2="-416" x1="384" />
+        <line x2="448" y1="-352" y2="-352" x1="384" />
+        <rect width="64" x="384" y="-300" height="24" />
+        <line x2="448" y1="-288" y2="-288" x1="384" />
+        <rect width="64" x="384" y="-236" height="24" />
+        <line x2="448" y1="-224" y2="-224" x1="384" />
+        <rect width="64" x="384" y="-172" height="24" />
+        <line x2="448" y1="-160" y2="-160" x1="384" />
+        <rect width="64" x="384" y="-108" height="24" />
+        <line x2="448" y1="-96" y2="-96" x1="384" />
+        <rect width="320" x="64" y="-448" height="576" />
+    </graph>
+</symbol>

@@ -1,0 +1,44 @@
+vhdtdtfi -lib work MASTER.vhd -prj pro -o MASTER.spl -module MASTER -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e MASTER.spl C:/Users/lab/Desktop/burniak_cyran/pro/MASTER.sym 
+vhdtdtfi -lib work MASTER.vhd -prj pro -o MASTER.spl -module MASTER -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e MASTER.spl C:/Users/lab/Desktop/burniak_cyran/pro/MASTER.sym 
+vhdtdtfi -lib work MASTER.vhd -prj pro -o MASTER.spl -module MASTER -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e MASTER.spl C:/Users/lab/Desktop/burniak_cyran/pro/MASTER.sym 
+vhdtdtfi -lib work MASTER.vhd -prj pro -o MASTER.spl -module MASTER -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e MASTER.spl C:/Users/lab/Desktop/burniak_cyran/pro/MASTER.sym 
+vhdtdtfi -lib work MASTER.vhd -prj pro -o MASTER.spl -module MASTER -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e MASTER.spl C:/Users/lab/Desktop/burniak_cyran/pro/MASTER.sym 
+vhdtdtfi -lib work MASTER.vhd -prj pro -o MASTER.spl -module MASTER -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e MASTER.spl C:/Users/lab/Desktop/burniak_cyran/pro/MASTER.sym 
+vhdtdtfi -lib work MASTER.vhd -prj pro -o MASTER.spl -module MASTER -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e MASTER.spl C:/Users/lab/Desktop/burniak_cyran/pro/MASTER.sym 
+vhdtdtfi -lib work MASTER.vhd -prj pro -o MASTER.spl -module MASTER -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e MASTER.spl C:/Users/lab/Desktop/burniak_cyran/pro/MASTER.sym 
+vhdtdtfi -lib work MASTER.vhd -prj pro -o MASTER.spl -module MASTER -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e MASTER.spl C:/Users/lab/Desktop/burniak_cyran/pro/MASTER.sym 
+vhdtdtfi -lib work MASTER.vhd -prj pro -o MASTER.spl -module MASTER -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e MASTER.spl C:/Users/lab/Desktop/burniak_cyran/pro/MASTER.sym 
+vhdtdtfi -lib work MASTER.vhd -prj pro -o MASTER.spl -module MASTER -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e MASTER.spl C:/Users/lab/Desktop/burniak_cyran/pro/MASTER.sym 
+vhdtdtfi -lib work MASTER.vhd -prj pro -o MASTER.spl -module MASTER -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e MASTER.spl C:/Users/lab/Desktop/burniak_cyran/pro/MASTER.sym 
+vhdtdtfi -lib work MASTER.vhd -prj pro -o MASTER.spl -module MASTER -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e MASTER.spl C:/Users/lab/Desktop/burniak_cyran/pro/MASTER.sym 
+vhdtdtfi -lib work MASTER.vhd -prj pro -o MASTER.spl -module MASTER -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e MASTER.spl C:/Users/lab/Desktop/burniak_cyran/pro/MASTER.sym 
+vhdtdtfi -lib work MASTER.vhd -prj pro -o MASTER.spl -module MASTER -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e MASTER.spl C:/Users/lab/Desktop/burniak_cyran/pro/MASTER.sym 
+vhdtdtfi -lib work MASTER.vhd -prj pro -o MASTER.spl -module MASTER -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e MASTER.spl C:/Users/lab/Desktop/burniak_cyran/pro/MASTER.sym 
+vhdtdtfi -lib work MASTER.vhd -prj pro -o MASTER.spl -module MASTER -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e MASTER.spl C:/Users/lab/Desktop/burniak_cyran/pro/MASTER.sym 
+vhdtdtfi -lib work MASTER.vhd -prj pro -o MASTER.spl -module MASTER -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e MASTER.spl C:/Users/lab/Desktop/burniak_cyran/pro/MASTER.sym 
+vhdtdtfi -lib work MASTER.vhd -prj pro -o MASTER.spl -module MASTER -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e MASTER.spl C:/Users/lab/Desktop/burniak_cyran/pro/MASTER.sym 
+vhdtdtfi -lib work MASTER.vhd -prj pro -o MASTER.spl -module MASTER -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e MASTER.spl C:/Users/lab/Desktop/burniak_cyran/pro/MASTER.sym 
+vhdtdtfi -lib work MASTER.vhd -prj pro -o MASTER.spl -module MASTER -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e MASTER.spl C:/Users/lab/Desktop/burniak_cyran/pro/MASTER.sym 
+vhdtdtfi -lib work MASTER.vhd -prj pro -o MASTER.spl -module MASTER -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e MASTER.spl C:/Users/lab/Desktop/burniak_cyran/pro/MASTER.sym 
