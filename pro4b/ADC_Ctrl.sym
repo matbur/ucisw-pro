@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<symbol version="7" name="ADC_Ctrl">
+    <symboltype>BLOCK</symboltype>
+    <timestamp>2009-10-5T13:47:31</timestamp>
+    <pin polarity="Input" x="0" y="128" name="Clk_Sys" />
+    <pin polarity="Input" x="0" y="-800" name="AMP_WE" />
+    <pin polarity="Input" x="0" y="-640" name="ADC_Start" />
+    <pin polarity="Input" x="480" y="-800" name="SPI_MISO" />
+    <pin polarity="Input" x="480" y="-480" name="AMP_DOUT" />
+    <pin polarity="Input" x="0" y="-736" name="AMP_DI(7:0)" />
+    <pin polarity="Output" x="480" y="128" name="Busy" />
+    <pin polarity="Output" x="480" y="-736" name="SPI_MOSI" />
+    <pin polarity="Output" x="480" y="-672" name="SPI_SCK" />
+    <pin polarity="Output" x="480" y="-544" name="AMP_CS" />
+    <pin polarity="Output" x="480" y="-416" name="AMP_SHDN" />
+    <pin polarity="Output" x="480" y="-608" name="AD_CONV" />
+    <pin polarity="Output" x="480" y="-288" name="DAC_CS" />
+    <pin polarity="Output" x="480" y="-352" name="DAC_CLR" />
+    <pin polarity="Output" x="480" y="-224" name="SPI_SS_B" />
+    <pin polarity="Output" x="480" y="-160" name="SF_CE0" />
+    <pin polarity="Output" x="480" y="-96" name="FPGA_INIT_B" />
+    <pin polarity="Output" x="480" y="0" name="ADC_DOA(13:0)" />
+    <pin polarity="Output" x="480" y="64" name="ADC_DOB(13:0)" />
+    <pin polarity="Input" x="0" y="0" name="Reset" />
+    <pin polarity="Input" x="0" y="64" name="Clk_50MHz" />
+    <graph>
+        <attrtext style="alignment:BCENTER;fontsize:56;fontname:Arial" attrname="SymbolName" x="240" y="-840" type="symbol" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="128" type="pin Clk_Sys" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-800" type="pin AMP_WE" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-640" type="pin ADC_Start" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="296" y="-800" type="pin SPI_MISO" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="276" y="-480" type="pin AMP_DOUT" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-736" type="pin AMP_DI(7:0)" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="408" y="128" type="pin Busy" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="408" y="-736" type="pin SPI_MOSI" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="408" y="-672" type="pin SPI_SCK" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="408" y="-544" type="pin AMP_CS" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="408" y="-416" type="pin AMP_SHDN" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="408" y="-608" type="pin AD_CONV" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="408" y="-288" type="pin DAC_CS" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="408" y="-352" type="pin DAC_CLR" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="408" y="-224" type="pin SPI_SS_B" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="408" y="-160" type="pin SF_CE0" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="408" y="-96" type="pin FPGA_INIT_B" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="408" y="0" type="pin ADC_DOA(13:0)" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="408" y="64" type="pin ADC_DOB(13:0)" />
+        <line x2="0" y1="-800" y2="-800" x1="64" />
+        <rect width="64" x="0" y="-748" height="24" />
+        <line x2="0" y1="-736" y2="-736" x1="64" />
+        <line x2="416" y1="-800" y2="-800" x1="480" />
+        <line x2="480" y1="-736" y2="-736" x1="416" />
+        <line x2="480" y1="-672" y2="-672" x1="416" />
+        <line x2="480" y1="-224" y2="-224" x1="416" />
+        <line x2="480" y1="-160" y2="-160" x1="416" />
+        <line x2="480" y1="-96" y2="-96" x1="416" />
+        <rect width="64" x="416" y="-12" height="24" />
+        <line x2="480" y1="0" y2="0" x1="416" />
+        <rect width="64" x="416" y="52" height="24" />
+        <line x2="480" y1="64" y2="64" x1="416" />
+        <line x2="480" y1="128" y2="128" x1="416" />
+        <line x2="0" y1="128" y2="128" x1="64" />
+        <line x2="480" y1="-352" y2="-352" x1="416" />
+        <line x2="480" y1="-288" y2="-288" x1="416" />
+        <line x2="480" y1="-416" y2="-416" x1="416" />
+        <line x2="416" y1="-480" y2="-480" x1="480" />
+        <line x2="0" y1="-640" y2="-640" x1="64" />
+        <line x2="480" y1="-544" y2="-544" x1="416" />
+        <line x2="480" y1="-608" y2="-608" x1="416" />
+        <rect width="352" x="64" y="-832" height="992" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="0" type="pin Reset" />
+        <line x2="0" y1="0" y2="0" x1="64" />
+        <line x2="0" y1="64" y2="64" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="64" type="pin Clk_50MHz" />
+    </graph>
+</symbol>
