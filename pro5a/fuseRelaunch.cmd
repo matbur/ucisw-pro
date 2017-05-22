@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "C:/Users/lab/Desktop/burniak_cyran/pro5/test_master_right_isim_beh.exe" -prj "C:/Users/lab/Desktop/burniak_cyran/pro5/test_master_right_beh.prj" "work.test_master_right" 
