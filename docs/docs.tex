@@ -4,6 +4,7 @@
 \usepackage[polish]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
+\usepackage{url}
 \selectlanguage{polish}
 
 \usepackage{graphicx}
@@ -32,7 +33,7 @@ grupa: śr/11/TN
 \begin{center}
   \begin{Huge}
     Urządzenia Cyfrowe \\
-    i Systemy Wbudowane: \\
+    i Systemy Wbudowane 2 \\
     \vspace{.5cm}
     projekt
   \end{Huge}
@@ -64,6 +65,22 @@ grupa: śr/11/TN
 
 \section{WSTĘP}
 
+Poniższy dokument jest dokumentacją techniczną projektu wykonanego w ramach zajęć laboratoryjnych z Układów Cyfowych i Systemów Wbudowanych 2. 
+Jego głównym celem jest przedstawienie wszelkich aspektów wykonania projektu, prezentacja struktury, komentarze dotyczące najważniejszych modułów i kluczowych fragmentów kodu, jak również umożliwienie kontynuacji projektu osobom z nim niezwiązanym. 
+Zadaniem do wykonania było stworzenie prostej gry na układzie FPGA Spartan 3E.
+
+Do realizacji wykorzystano dwa dodatkowe urządzenia peryferyjne - monitor VGA oraz analogowy drążek sterowy.
+Obsługa urządzeń peryferyjnych okazała się pierwszym i podstawowym zadaniem. 
+W przypadku monitora VGA korzystano z pomocy dokumentacji technicznej firmy Xilinx\cite{pa}.
+Dużym ułatwieniem okazały się także gotowe moduły do obsługi wyświetlacza LCD, czy też przetwornika analogowo-cyfrowego, dostępne na stronie prowadzącego przedmiotu\cite{pb}.
+Wraz z wykonaniem pierwszych zadań wykształcała się idea końcowego projektu.
+Postawiono na grę, w której gracz poruszając małym kwadratem po ekranie przy pomocy drążka sterowego musi przejść labirynt.
+Dodano także pomiar czasu wyświetlany na ekranie LCD.
+Całość projektu zrealizowana została na systemie Windows w środowisku Xilinx ISE stosując język VHDL.
+Przy pisaniu modułów korzystano głównie z wiedzy nabytej na wykładzie obu semestrów realizowania Układów Cyfrowych i Systemów Wbudowanych\cite{pc}.
+Programowanie płyty Spartan 3E odbywało się przy pomocy aplikacji iMPACT.
+
+
 \section{OPIS}
 
 \begin{figure}[H]
@@ -75,7 +92,7 @@ grupa: śr/11/TN
 Powyższy rysunek to schemat projektu.
 Widać na nim wszystkie stworzone moduły.
 
-Nasz projekt ma strukturę gwiazdzistą, gdyż każdy moduł połączony jest z modułem głównym MASTER.
+Projekt ma strukturę gwiazdzistą, gdyż każdy moduł połączony jest z modułem głównym MASTER.
 
 \subsection{MASTER}
 
@@ -296,7 +313,7 @@ Przeprowadzona została symulacja zachowania modułu vga\_init, na której wida�
 
 \begin{figure}[H]
 \center
-\includegraphics[scale=.5]{symulacja_vga.png} 
+\includegraphics[scale=.9]{symulacja_vga.png} 
 \caption{Symulacja modułu vga\_init}
 \end{figure}
 
@@ -547,6 +564,10 @@ Ostatnia propozycja to zapisywanie rankingu czasów osiągniętych przez graczy.
 
 \section{SPIS LITERATURY}
 
-ąćęłóńźżś
+\begin{thebibliography}{99}
+\bibitem{pa} Xilinx: \textit{Spartan-3E FPGA Starter Kit Board User Guide}, v1.2 (2011)
+\bibitem{pb} Dr inż. Jarosław Sugier: Zestawy Digilent S3E-Starter, \url{http://www.zsk.ict.pwr.wroc.pl/zsk_ftp/fpga/} (stan na 29.05.2017)
+\bibitem{pc} Dr inż. Jarosław Sugier: Prezentacje dotyczące języka VHDL, \url{http://www.zsk.ict.pwr.wroc.pl/zsk/repository/dydaktyka/uc/ucsw1_vhdl.pdf} (stan na 29.05.2017)
+\end{thebibliography}
 
 \end{document}
