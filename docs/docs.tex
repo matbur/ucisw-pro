@@ -26,7 +26,7 @@
 \noindent
 Mateusz Burniak 218321 \\
 Krzysztof Cyran 218405 \\
-grupa: śr/11/TN
+grupa: śr/11/TP
 
 \vfill
 
@@ -63,6 +63,11 @@ grupa: śr/11/TN
 
 \newpage
 
+\tableofcontents
+
+\newpage
+
+
 \section{WSTĘP}
 
 Poniższy dokument jest dokumentacją techniczną projektu wykonanego w ramach zajęć laboratoryjnych z Układów Cyfowych i Systemów Wbudowanych 2. 
@@ -79,7 +84,6 @@ Dodano także pomiar czasu wyświetlany na ekranie LCD.
 Całość projektu zrealizowana została na systemie Windows w środowisku Xilinx ISE stosując język VHDL.
 Przy pisaniu modułów korzystano głównie z wiedzy nabytej na wykładzie obu semestrów realizowania Układów Cyfrowych i Systemów Wbudowanych\cite{pc}.
 Programowanie płyty Spartan 3E odbywało się przy pomocy aplikacji iMPACT.
-
 
 \section{OPIS}
 
@@ -109,15 +113,14 @@ Znajdują się w nim sygnały wewnętrzne, które zawierają aktualną pozycję 
 
 20-bitowy wektor wejściowy POS dzielony jest po 10 bitów na pozycję w pionie i poziomie do sygnałów wewnętrznych HPOS i VPOS.
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Pobranie aktualnego adresu]
 HPOS <= signed('0' & POS(19 downto 10));
 VPOS <= signed('0' & POS(9 downto 0));
 \end{lstlisting}
 
-Moduł MASTER steruje również wzmocnieniem odbiornika analogowego, wysyłając impulsy na AMP\_WE i ADC\_Start w odpowiednich momentach.
-%TODO ref
+Moduł MASTER steruje również wzmocnieniem odbiornika analogowego, wysyłając impulsy na AMP\_WE i ADC\_Start w odpowiednich momentach \cite{pa}.
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Sterowanie wzmocnieniem obiornika analogowo-cyfrowego]
 AMP_WE <= '1' when HPOS = 0 and VPOS = 0 else '0';
 AMP_DI <= X"22";
 ADC_Start <= '1' when HPOS = HMAX and
@@ -127,7 +130,7 @@ ADC_Start <= '1' when HPOS = HMAX and
 MASTER przesyła dane na wyświetlacz LCD, czyli ustawia które pola wyświetlacza mają być zapalone i jakie znaki mają się wyświetlać.
 Są to odczyty z wejścia analogowego i aktualny czas gry.
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Sterowanie wyświetlaczem LCD]
 Blank <= X"0C30";
 Line <= ADC_DOA & "00" & X"00" &
         ADC_DOB & "00" & X"00" &
@@ -138,7 +141,7 @@ Kolejnym zadaniem, które wykonuje moduł MASTER to przygotowanie adresu do zapy
 Ma to na celu sprawdzenie, czy aktualny piksel należy do labiryntu, czy jest tłem.
 Po zakończeniu gry wartości pobierane są z pamięci ROM modułu CONGRATS.
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Ustawienie adresu w pamięci ROM]
 ADDR <= STD_LOGIC_VECTOR(VPOS(9 downto 3)) &
         STD_LOGIC_VECTOR(HPOS(9 downto 3));
 \end{lstlisting}
@@ -148,7 +151,7 @@ Jeśli jest ścianą labiryntu, to ustawia jego kolor na niebieski.
 W innym przypadku ustawianym kolorem jest kolor żółty.
 Po skończonej grze kolory pikseli brane są z moduły CONGRATS.
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Sterowanie kolorem]
 VGA_COLOR_INT <= DATA_CON & DATA_CON & not DATA_CON
                  when TIMER_EN = '0'
                  else B"101" when HPOS > BOX_HPOS and
@@ -162,7 +165,7 @@ VGA_COLOR_INT <= DATA_CON & DATA_CON & not DATA_CON
 W procesie TIMER obliczany jest czas gry z dokładnością do 0.1 sekundy. 
 Jeśli ustawiona jest flaga TOUCHING, to naliczana jest kara czasowa.
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Naliczanie kary czasowej]
 if TOUCHING = '1' and TIMER_EN = '1' then
     PLAYTIME <= PLAYTIME + 1;
 end if;
@@ -171,7 +174,7 @@ end if;
 Ważnym elementem modułu MASTER jest obsługa przycisku RESET, zerującego pomiar czasu gry oraz pozycję poruszanego kwadratu. 
 Przycisk ten działa zarówno w trakcie, jak i po ukończeniu rozgrywki. 
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Sterowanie restartem]
 process (CLK)
 begin
    if rising_edge(CLK) then
@@ -189,7 +192,7 @@ Odpowiada on za aktualizacje pozycji sterowanego przez drążek sterowy kwadratu
 Do aktualnej pozycji kwadratu dodawane są trzy najstarsze bity otrzymane z kontrolera analogowo-cyfrowego.
 Zapewnia to płynność ruchu.
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Aktualizowanie pozycji kwadratu]
 if HPOS = 0 and VPOS = 0 then
   BOX_HPOS <= BOX_HPOS - signed(ADC_DOA(13 downto 11));
   BOX_VPOS <= BOX_VPOS + signed(ADC_DOB(13 downto 11));
@@ -199,7 +202,7 @@ end if;
 
 Kwadrat nie ma możliwości wyjśc poza planszę lub wejśc w ścianę labirytnu.
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Zapobieganie wyścia poza mapę]
 if BOX_HPOS < 0 then
     BOX_HPOS <= to_signed(0, 11);
 elsif BOX_HPOS > HMAX - SIDE then
@@ -215,7 +218,7 @@ end if;
 
 Próba wejścia w ścianę powoduje ustawienie flagi TOUCHING i odjęcie wartości, która została wcześniej dodana.
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Przywracanie pozycji kwadratu]
 if TOUCHING = '1' then
   TOUCHING <= '0';
   BOX_HPOS <= BOX_HPOS + signed(ADC_DOA(13 downto 11));
@@ -232,7 +235,7 @@ end if;
 
 Kiedy pozycja kwadratu spełnia warunki końcowe, to dezaktywowana jest flaga TIMER\_EN, która zatrzymuje pomiar czasu.
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Zatrzymywanie pomiaru czasu]
 if BOX_VPOS < 2 then
    TIMER_EN <= '0';
 end if;
@@ -255,7 +258,8 @@ Dodatkowo połączony jest z zewnętrznymi pinami Spartana.
 
 Wewnątrz znajdują się dwa liczniki modulo liczące w górę.
 Pierwszy z nich odlicza pozycję w poziomie w sygnale HPOS i kiedy osiąga wartość maksymalną, aktywuje impuls VGA\_HS.
-\begin{lstlisting}
+
+\begin{lstlisting}[caption=Sterowanie pozycją piksela w poziomie]
 HPOS_CNT: process (CLK) 
 begin
    if rising_edge(CLK) then
@@ -267,8 +271,10 @@ begin
    end if;
 end process HPOS_CNT;
 \end{lstlisting}
+
 Drugi licznik zwiększa pozycję w pionie w sygnale VPOS, kiedy licznik HPOS osiąga wartość maksymalną i odpowiada za przeniesienie aktualnego piksela na początek ekranu aktywując VGA\_VS.
-\begin{lstlisting}
+
+\begin{lstlisting}[caption=Sterowanie pozycją piksela w pionie]
 VPOS_CNT: process (CLK) 
 begin
    if rising_edge(CLK) and HPOS = HPOS_MAX then
@@ -283,14 +289,15 @@ end process VPOS_CNT;
 
 Sygnał wyjściowy POS jest konkatenacją 10-bitowych wektorów HPOS i VPOS. 
 Kierowany jest do modułu MASTER.
-\begin{lstlisting}
+
+\begin{lstlisting}[caption=Przypisanie wektora z pozycją piksela]
 POS <= STD_LOGIC_VECTOR(to_unsigned(HPOS, 10)) &
        STD_LOGIC_VECTOR(to_unsigned(VPOS, 10));
 \end{lstlisting}
 
-
 Kolory ustawiane są poprzez sygnały wyjściowe VGA\_R, VGA\_G, VGA\_B.
-\begin{lstlisting}
+
+\begin{lstlisting}[caption=Ustawienie kolorów]
 VGA_R <= VGA_COLOR(2) when
          HPOS < HT_DISP and VPOS < VT_DISP else '0';
 VGA_G <= VGA_COLOR(1) when
@@ -298,9 +305,11 @@ VGA_G <= VGA_COLOR(1) when
 VGA_B <= VGA_COLOR(0) when
          HPOS < HT_DISP and VPOS < VT_DISP else '0';
 \end{lstlisting}
+
 Pobierane są z 3-bitowego wektora VGA\_COLOR jeśli aktualna pozycja piksela mieści się w widzialnym zakresie monitora.
 W przeciwnym wypadku ustawiany jest kolor czarny "000".
-\begin{lstlisting}
+
+\begin{lstlisting}[caption=Sterowanie pozycją piksela]
 VGA_HS <= '1' when HPOS >= HT_DISP + HT_FP and
           HPOS < HPOS_MAX - HT_BP else '0';
 VGA_VS <= '1' when VPOS >= VT_DISP + VT_FP and
@@ -313,7 +322,7 @@ Przeprowadzona została symulacja zachowania modułu vga\_init, na której wida�
 
 \begin{figure}[H]
 \center
-\includegraphics[scale=.9]{symulacja_vga.png} 
+\includegraphics[scale=.6]{symulacja_vga.png}
 \caption{Symulacja modułu vga\_init}
 \end{figure}
 
@@ -329,7 +338,7 @@ Pamięci ROM są kluczowymi elementami projektu. Występują dwie instancje pami
 Pierwsza z nich, MAZE, to zapis struktury labiryntu.
 Druga to plansza końcowowa z napisem "CONGRATULATION".
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Kod pamięci ROM]
 entity MAZE is
 port (CLK : in std_logic;
       ADDR : in std_logic_vector(13 downto 0);
@@ -359,10 +368,10 @@ Na powyższym fragmencie kodu pamięci ROM zapisane jest 9600 bitów, które odp
 Piksele zostały tak zgrupowane w celu zaoczędzenia pamięci, kosztem widzianej rozdzielczości.
 Pamięć ROM na wejściu przyjmuje 14-bitowy wektor, który jest adresem komórki pamięci.
 Starsze 7 bitów to numer wiersza, a młodsze to numer kolumny.
-//
+
 Pomimo, że na ekranie o rozdzielczości 800x600 można wyświetlić 7500 bloków 8x8-bitowych, to dodane zostało 28 kolumn, które są niewidoczne na ekranie, ale ułatwiają adresację w pamięci.
 Dzieje się tak, ponieważ liczby w zakresie 100+28 można zapisać na dokładnie 7 bitach.
-% TODO
+%TODO 
 
 \subsection{POZOSTAŁE MODUŁY}
 
@@ -383,8 +392,7 @@ Są to ADC\_Ctrl i LCD1x64.
 Pierwszy odpowiada za sczytywanie syganłów analogowych z drążka sterowego i przekazanie do modułu MASTER jego pozycji w postaci cyfrowej.
 Drugi moduł komunikuje się z wyświetlaczem LCD i wyświetla na nim pozycje drążka w pionie i poziomie oraz aktualny czas gry.
 Traktowane są jako czarne skrzynki, dla których zdefiniowane są wejścia i wyjścia.
-Więcej na ten temat można znaleźć na stronie 
-% TODO
+Więcej na ten temat można znaleźć na stronie \cite{pb}.
 
 
 \section{IMPLEMENTACJA}
@@ -394,7 +402,8 @@ Więcej na ten temat można znaleźć na stronie
 Poniższa tabela przedstawia wybrane parametry użycia Spartana-3E.
 Wynika z niej, że projekt używa niewielki procent dostępnych zasobów.
 
-
+\begin{table}[H]
+\caption{Podsumowanie użycia urządzenia}
 \begin{tabular}{|l|l|l|l|}
 \hline
 Logic Utilization &
@@ -469,6 +478,8 @@ Average Fanout of Non-Clock Nets &
 \hline
 \end{tabular}
 
+\end{table}
+
 \vspace{1em}
 
 Ograniczenia czasowe wyglądają następująco.
@@ -479,7 +490,6 @@ Best Case Achievable jest dostępny tylko dla czasu SETUP i jest równy 14,820 n
 
 Podczas generowania raportu nie zostały znalezione żadne błędy związane z zegarem.
 
-
 \subsection{PODRĘCZNIK UŻYTKOWNIKA}
 
 Poniższy podręcznik użytkownika ma na celu krótkie wprowadzenie do obsługi gry, bez zagłębiania się w szczegóły implementacyjne.
@@ -488,10 +498,11 @@ Celem gry jest przejście labiryntu kwadratem przy pomocy drązka sterowego w ja
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=.5]{plytka.jpg}
+\includegraphics[scale=.4]{plytka.jpg}
 \caption{Płytka z potrzebnym sprzętem}
 \end{figure}
 
+\noindent
 A - wyjście podłączenia monitora przez port VGA \\
 B - wejście analogowe do podłączenie drążka sterowego \\
 C - analogowy drążek sterowy \\
@@ -502,14 +513,13 @@ Jak widać na zdjęciu wtyczka od drążka sterowego musi być podłączona do p
 
 Przed rozpoczęciem gry należy drążek ustawić możliwie w pozycji pionowej.
 Oprócz tego należy zwrócić uwagę na to, by osie drążka odpowiadały układowi współrzędnych, gdzie wartości osi X rosną w prawo, a osi Y w górę.
-Ma to na celu poprawne odzwierciedlenie ruchów gracza w grze. 
-%
+Ma to na celu poprawne odzwierciedlenie ruchów gracza w grze.
 
 Po podłączeniu potrzebnego osprzętu i zaprogramowaniu płytki gra rozpoczyna się. 
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=.5]{game.jpg}
+\includegraphics[scale=.4]{game.jpg}
 \caption{Widok labiryntu podczas gry}
 \end{figure}
 
@@ -519,7 +529,7 @@ Poruszać się można tylko po żółtym polu. Ściany labiryntu reprezentowane 
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=.5]{end-screen.jpg}
+\includegraphics[scale=.4]{end-screen.jpg}
 \caption{Widok końcowy gry}
 \end{figure}
 
@@ -527,10 +537,6 @@ Koniec labiryntu znajduje się w lewym, górnym rogu.
 Po dojściu tam, pokazuje się grafika końcowa z napisem CONGRATULATION. %rys. end-screen
 Ponadto zatrzymywany jest pomiar czasu, który pokazany jest na wyświetlaczu LCD po prawej stronie w systemie szesnastkowym.
 W celu rozpoczęcia nowej rozgrywki należy użyć przycisku RESET.
-
-
-
-
 
 \section{PODSUMOWANIE}
 
@@ -561,6 +567,7 @@ Następny pomysł, to dodanie obsługi kolejnego drążka sterowego, w celu moż
 W ten sposób element rywalizacji osiągnąłby wyższy poziom.
 Ostatnia propozycja to zapisywanie rankingu czasów osiągniętych przez graczy.
 
+\newpage
 
 \section{SPIS LITERATURY}
 
@@ -569,5 +576,9 @@ Ostatnia propozycja to zapisywanie rankingu czasów osiągniętych przez graczy.
 \bibitem{pb} Dr inż. Jarosław Sugier: Zestawy Digilent S3E-Starter, \url{http://www.zsk.ict.pwr.wroc.pl/zsk_ftp/fpga/} (stan na 29.05.2017)
 \bibitem{pc} Dr inż. Jarosław Sugier: Prezentacje dotyczące języka VHDL, \url{http://www.zsk.ict.pwr.wroc.pl/zsk/repository/dydaktyka/uc/ucsw1_vhdl.pdf} (stan na 29.05.2017)
 \end{thebibliography}
+
+\listoffigures
+
+\listoftables
 
 \end{document}
