@@ -41,7 +41,7 @@ grupa: śr/11/TN
   
   \begin{Large}
     Gra w labirynt na VGA \\
-    z użyciem drążka sterownego
+    z użyciem drążka sterowego
   \end{Large}
   
   \vspace{3cm}
@@ -66,7 +66,11 @@ grupa: śr/11/TN
 
 \section{OPIS}
 
-<schemat>
+\begin{figure}[H]
+\center
+\includegraphics[scale=.6]{schemat.png}
+\caption{Schemat całego projektu}
+\end{figure}
 
 Powyższy rysunek to schemat projektu.
 Widać na nim wszystkie stworzone moduły.
@@ -368,17 +372,95 @@ Więcej na ten temat można znaleźć na stronie
 
 \section{IMPLEMENTACJA}
 
+\subsection{WYKORZYSTANIE SPRZĘTU}
+
+Poniższa tabela przedstawia wybrane parametry użycia Spartana-3E.
+Wynika z niej, że projekt używa niewielki procent dostępnych zasobów.
+
+
 \begin{tabular}{|l|l|l|l|}
 \hline
-	Logic: Utilization & 12 & 13 & 14\\
+Logic Utilization &
+Used &
+Available &
+Utilization \\
 \hline
-	21 & 22 & 23 & 24\\
+Number of Slice Flip Flops &
+236 &
+9,312 &
+2\% \\
 \hline
-	31 & 32 & 33 & 34\\
+Number of 4 input LUTs &
+369 &
+9,312 &
+3\% \\
 \hline
-	41 & 42 & 43 & 44\\
+Number of occupied Slices &
+286 &
+4,656 & 
+6\% \\
+\hline
+Number of Slices containing only related logic &
+286 &
+286 &
+100\% \\
+\hline
+
+Total Number of 4 input LUTs &
+470 &
+9,312 &
+5\% \\
+\hline
+Number used as logic &
+368 & & \\
+\hline
+ 
+Number used as a route-thru &
+101 & & \\
+\hline
+ 
+Number used as Shift registers &
+1 & & \\
+\hline
+ 
+Number of bonded IOBs &
+27 &
+232 &
+11\% \\
+\hline
+Number of IDDR2s used &
+1 & & \\
+\hline 
+ 
+Number of ODDR2s used &
+2 & & \\
+\hline
+ 
+ 
+Number of RAMB16s &
+2 &
+20 &
+10\% \\
+\hline
+Number of BUFGMUXs &
+1 &
+24 &
+4\% \\
+\hline
+Average Fanout of Non-Clock Nets &
+2.98 & & \\
 \hline
 \end{tabular}
+
+\vspace{1em}
+
+Ograniczenia czasowe wyglądają następująco.
+Użyty został zegar o okresie 20 ns.
+Narzędzie Xilinx ISE wygenerowało raport, z którego wynika, że Worst Case Slack dla SETUP wynosi 2,590 ns, a dla HOLD 0,968 ns.
+Wartości dodatnie oznaczają, że ograniczenia są spełnione.
+Best Case Achievable jest dostępny tylko dla czasu SETUP i jest równy 14,820 ns.
+
+Podczas generowania raportu nie zostały znalezione żadne błędy związane z zegarem.
 
 
 \subsection{PODRĘCZNIK UŻYTKOWNIKA}
@@ -389,7 +471,7 @@ Celem gry jest przejście labiryntu kwadratem przy pomocy drązka sterowego w ja
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=.5]{plytka.jpg} %TODO numeracja na obrazku
+\includegraphics[scale=.5]{plytka.jpg}
 \caption{Płytka z potrzebnym sprzętem}
 \end{figure}
 
