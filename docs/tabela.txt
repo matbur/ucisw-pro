@@ -1,0 +1,71 @@
+
+Logic Utilization &
+Used &
+Available &
+Utilization \\
+\hline
+Number of Slice Flip Flops &
+236 &
+9,312 &
+2\% \\
+\hline
+Number of 4 input LUTs &
+369 &
+9,312 &
+3\% \\
+\hline
+Number of occupied Slices &
+286 &
+4,656 & 
+6\% \\
+\hline
+Number of Slices containing only related logic &
+286 &
+286 &
+100\% \\
+\hline
+
+Total Number of 4 input LUTs &
+470 &
+9,312 &
+5\% \\
+\hline
+Number used as logic &
+368 & & \\
+\hline
+ 
+Number used as a route-thru &
+101 & & \\
+\hline
+ 
+Number used as Shift registers &
+1 & & \\
+\hline
+ 
+Number of bonded IOBs &
+27 &
+232 &
+11\% \\
+\hline
+Number of IDDR2s used &
+1 & & \\
+\hline 
+ 
+Number of ODDR2s used &
+2 & & \\
+\hline
+ 
+ 
+Number of RAMB16s &
+2 &
+20 &
+10\% \\
+\hline
+Number of BUFGMUXs &
+1 &
+24 &
+4\% & \\
+\hline
+Average Fanout of Non-Clock Nets &
+2.98 & & \\
+\hline
