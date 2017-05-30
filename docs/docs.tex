@@ -7,6 +7,7 @@
 \usepackage{url}
 \selectlanguage{polish}
 
+\usepackage{geometry}
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{listings}
@@ -70,7 +71,7 @@ grupa: śr/11/TP
 
 \section{WSTĘP}
 
-Poniższy dokument jest dokumentacją techniczną projektu wykonanego w ramach zajęć laboratoryjnych z Układów Cyfowych i Systemów Wbudowanych 2. 
+\hspace*{0.55cm}Poniższy dokument jest dokumentacją techniczną projektu wykonanego w ramach zajęć laboratoryjnych z Układów Cyfowych i Systemów Wbudowanych 2. 
 Jego głównym celem jest przedstawienie wszelkich aspektów wykonania projektu, prezentacja struktury, komentarze dotyczące najważniejszych modułów i kluczowych fragmentów kodu, jak również umożliwienie kontynuacji projektu osobom z nim niezwiązanym. 
 Zadaniem do wykonania było stworzenie prostej gry na układzie FPGA Spartan 3E.
 
@@ -84,7 +85,7 @@ Dodano także pomiar czasu wyświetlany na ekranie LCD.
 Całość projektu zrealizowana została na systemie Windows w środowisku Xilinx ISE stosując język VHDL.
 Przy pisaniu modułów korzystano głównie z wiedzy nabytej na wykładzie obu semestrów realizowania Układów Cyfrowych i Systemów Wbudowanych\cite{pc}.
 Programowanie płyty Spartan 3E odbywało się przy pomocy aplikacji iMPACT.
-
+\newgeometry{tmargin=2.5cm}
 \section{OPIS}
 
 \begin{figure}[H]
@@ -95,7 +96,6 @@ Programowanie płyty Spartan 3E odbywało się przy pomocy aplikacji iMPACT.
 
 Powyższy rysunek to schemat projektu.
 Widać na nim wszystkie stworzone moduły.
-
 Projekt ma strukturę gwiazdzistą, gdyż każdy moduł połączony jest z modułem głównym MASTER.
 
 \subsection{MASTER}
@@ -106,13 +106,13 @@ Projekt ma strukturę gwiazdzistą, gdyż każdy moduł połączony jest z modu�
 \caption{Schemat modułu MASTER}
 \end{figure}
 
-Moduł MASTER odpowiada za całą logikę gry.
+\hspace*{0.55cm}Moduł MASTER odpowiada za całą logikę gry.
 Komunikuje się ze wszystkimi innymi modułami.
 
 Znajdują się w nim sygnały wewnętrzne, które zawierają aktualną pozycję kwadratu i aktualnego piksela, jak również inne, potrzebne do liczenia upływającego czasu.
 
 20-bitowy wektor wejściowy POS dzielony jest po 10 bitów na pozycję w pionie i poziomie do sygnałów wewnętrznych HPOS i VPOS.
-
+\newpage
 \begin{lstlisting}[caption=Pobranie aktualnego adresu]
 HPOS <= signed('0' & POS(19 downto 10));
 VPOS <= signed('0' & POS(9 downto 0));
@@ -140,7 +140,8 @@ Line <= ADC_DOA & "00" & X"00" &
 Kolejnym zadaniem, które wykonuje moduł MASTER to przygotowanie adresu do zapytania pamięci ROM z modułu MAZE.
 Ma to na celu sprawdzenie, czy aktualny piksel należy do labiryntu, czy jest tłem.
 Po zakończeniu gry wartości pobierane są z pamięci ROM modułu CONGRATS.
-
+\newpage
+\newgeometry{tmargin=2cm}
 \begin{lstlisting}[caption=Ustawienie adresu w pamięci ROM]
 ADDR <= STD_LOGIC_VECTOR(VPOS(9 downto 3)) &
         STD_LOGIC_VECTOR(HPOS(9 downto 3));
@@ -191,7 +192,7 @@ Najważniejszym elementem modułu MASTER jest proces BOX.
 Odpowiada on za aktualizacje pozycji sterowanego przez drążek sterowy kwadratu w kolorze fuksji.
 Do aktualnej pozycji kwadratu dodawane są trzy najstarsze bity otrzymane z kontrolera analogowo-cyfrowego.
 Zapewnia to płynność ruchu.
-
+\newpage
 \begin{lstlisting}[caption=Aktualizowanie pozycji kwadratu]
 if HPOS = 0 and VPOS = 0 then
   BOX_HPOS <= BOX_HPOS - signed(ADC_DOA(13 downto 11));
@@ -279,7 +280,7 @@ end process HPOS_CNT;
 \end{lstlisting}
 
 Drugi licznik zwiększa pozycję w pionie w sygnale VPOS, kiedy licznik HPOS osiąga wartość maksymalną i odpowiada za przeniesienie aktualnego piksela na początek ekranu aktywując VGA\_VS.
-
+\newpage
 \begin{lstlisting}[caption=Sterowanie pozycją piksela w pionie]
 VPOS_CNT: process (CLK) 
 begin
@@ -321,7 +322,7 @@ VGA_HS <= '1' when HPOS >= HT_DISP + HT_FP and
 VGA_VS <= '1' when VPOS >= VT_DISP + VT_FP and
           VPOS < VPOS_MAX - VT_BP else '0';
 \end{lstlisting}
-
+\newpage
 \subsubsection{SYMULACJA}
 
 Przeprowadzona została symulacja zachowania modułu vga\_init, na której widać, jak zmienia się wektor pos pod wpływem upływania czasu.
@@ -342,7 +343,7 @@ Przeprowadzona została symulacja zachowania modułu vga\_init, na której wida�
 
 Pamięci ROM są kluczowymi elementami projektu. Występują dwie instancje pamięci tego typu, które są bitmapami o rozmiarze 100x75 zapisanymi jako monochromatyczne bity.
 Pierwsza z nich, MAZE, to zapis struktury labiryntu.
-Druga to plansza końcowowa z napisem "CONGRATULATION".
+Druga to plansza końcowowa z napisem CONGRATULATION.
 
 \begin{lstlisting}[caption=Kod pamięci ROM]
 entity MAZE is
@@ -380,7 +381,8 @@ Dzieje się tak, ponieważ liczby w zakresie 100+28 można zapisać na dokładni
 %TODO 
 
 \subsubsection{SYMULACJA}
-
+Przeprowadzona została symulacja modułu MAZE. 
+Przy wykorzystaniu licznika CNT zwiększania jest wartość addr, a następnie widać jak DATA zmienia się w odpowiednim miejscu na 1.
 \begin{figure}[H]
 \center
 \includegraphics[scale=.7]{maze_test.png}
@@ -406,8 +408,8 @@ Są to ADC\_Ctrl i LCD1x64.
 Pierwszy odpowiada za sczytywanie syganłów analogowych z drążka sterowego i przekazanie do modułu MASTER jego pozycji w postaci cyfrowej.
 Drugi moduł komunikuje się z wyświetlaczem LCD i wyświetla na nim pozycje drążka w pionie i poziomie oraz aktualny czas gry.
 Traktowane są jako czarne skrzynki, dla których zdefiniowane są wejścia i wyjścia.
-Więcej na ten temat można znaleźć na stronie \cite{pb}.
-
+Więcej na ten temat można znaleźć na stronie dr inż. Jarosława Sugiera\cite{pb}.
+\newpage
 
 \section{IMPLEMENTACJA}
 
@@ -530,10 +532,10 @@ Oprócz tego należy zwrócić uwagę na to, by osie drążka odpowiadały ukła
 Ma to na celu poprawne odzwierciedlenie ruchów gracza w grze.
 
 Po podłączeniu potrzebnego osprzętu i zaprogramowaniu płytki gra rozpoczyna się. 
-
+\newgeometry{tmargin=1.9cm}
 \begin{figure}[H]
 \centering
-\includegraphics[scale=.4]{game.jpg}
+\includegraphics[scale=.3]{game.jpg}
 \caption{Widok labiryntu podczas gry}
 \end{figure}
 
@@ -543,7 +545,7 @@ Poruszać się można tylko po żółtym polu. Ściany labiryntu reprezentowane 
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=.4]{end-screen.jpg}
+\includegraphics[scale=.3]{end-screen.jpg}
 \caption{Widok końcowy gry}
 \end{figure}
 
@@ -554,7 +556,7 @@ W celu rozpoczęcia nowej rozgrywki należy użyć przycisku RESET.
 
 \section{PODSUMOWANIE}
 
-Po zakończeniu prac można krytycznie ocenić realizację założeń projektu.
+\hspace*{0.55cm}Po zakończeniu prac można krytycznie ocenić realizację założeń projektu.
 Wszystkie z początkowo postawionych celów zostały spełnione w planowanym terminie, dlatego jesteśmy zadowoleni z ogółu wyników prac.
 Pewne rozwiązania, które przyjęliśmy na początku okazały się jednak chybione i po wielogodzinnych analizach problemu oraz pomocy prowadzącego, musieliśmy diametralnie je zmienić.
 Przykład może stanowić użycie danych typu integer.
@@ -573,7 +575,7 @@ Ponadto logika sterowania kwadratem również mogłaby być osobnym modułem, co
 
 \subsection{KIERUNKI DALSZYCH PRAC}
 
-Po zakończeniu projektu, pomimo pełnej założonej funkcjonalności, możemy określić dalsze kierunki rozwoju gry.
+\hspace*{0.55cm}Po zakończeniu projektu, pomimo pełnej założonej funkcjonalności, możemy określić dalsze kierunki rozwoju gry.
 Przede wszystkim można zaimplementować nowe mapy labiryntów, o rosnącym poziomie trudności, by gra była coraz większym wyzwaniem.
 Kolejny pomysł to możliwość zmiany kolorów w grze za pomocą przycisków, które znajdują się dookoła potencjometru na płytce Spartan 3E.
 Można również rozbudować projekt o kolejne urządzenia peryferyjne, takie, jak głośnik, na którym odtwarzana byłaby muzyczka umilająca grę.
